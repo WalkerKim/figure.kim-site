@@ -7,7 +7,7 @@
         <artifactId>site</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>figure.kim.site</groupId>
+    <groupId>kim.figure.site</groupId>
     <artifactId>main</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>main</name>
@@ -20,6 +20,17 @@
             <groupId>kim.figure.site</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>kim.figure</groupId>
+            <artifactId>vite-thymeleaf-spring-boot-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
