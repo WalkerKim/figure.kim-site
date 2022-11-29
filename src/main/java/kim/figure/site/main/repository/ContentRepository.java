@@ -1,12 +1,12 @@
 package kim.figure.site.main.repository;
 
 import kim.figure.site.common.content.Content;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * author         : walker
  * date           : 2022. 11. 21.
  * description    :
  */
-public interface ContentRepository extends JpaRepository<Content, Long> {
+public interface ContentRepository extends MongoRepository<Content, Long> {
 }
