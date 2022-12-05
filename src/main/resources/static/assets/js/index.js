@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 console.log(ScrollTrigger)
 gsap.to("#index-description",{

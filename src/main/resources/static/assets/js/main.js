@@ -3,6 +3,7 @@ import '../css/main.css';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {TextPlugin} from "gsap/TextPlugin";
+
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
 const signatureWordArray = [ "Figure.k;m", "도형;킴"];
 let isStopSignatureTransition = false;
