@@ -1,5 +1,6 @@
 package kim.figure.site.main.repository;
 
+import kim.figure.site.common.category.Category;
 import kim.figure.site.common.content.Content;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -9,4 +10,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * description    :
  */
 public interface ContentRepository extends MongoRepository<Content, Long> {
+
+    Long countByCategoryList(Category category);
 }

@@ -6,7 +6,22 @@
     font-style: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'THE한밭돋움';
+    src: url('../font/THE한밭돋움L.woff2') format('woff2'),
+    url('../font/THE한밭돋움L.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'THE한밭돋움';
+    src: url('../font/THE한밭돋움B.woff2') format('woff2'),
+    url('../font/THE한밭돋움B.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
 
 @tailwind base;

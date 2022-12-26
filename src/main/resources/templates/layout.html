@@ -9,8 +9,7 @@
     <script type="module" th:src="@{/@vite/client}" th:if="${@environment.getProperty('vite.is-vite-dev-server-active')}"></script>
     <script type="module" th:src="@{/assets/js/main.js}"></script>
 </head>
-<body data-th-id="${bodyId}">
-
+<body data-th-id="${bodyId}" class="">
     <aside>
         </span>
         <div class="md:py-2.5 md:px-2.5 px-2.5 pt-2 mt-0 fixed items-center h-[40px] md:h-[80px] flex z-40 w-full bg-white" id="signature-wrapper">
@@ -23,104 +22,50 @@
                     <span class="cursor inline-block">_</span>
                 </a>
             </div>
-
-
             <!--        <i class="bi bi-x ml-20 cursor-pointer md:hidden" onclick="Openbar()"></i>-->
         </div>
         <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-250px] duration-1000 py-2 w-[200px] lg:w-[250px] text-center h-screen overflow-y-auto transition ease-linear duration-300 z-[1] md:z-30 text-white"
              id="side-bar">
             <div class="text-gray-100 text-xl">
-                <div class="p-2.5 my-1 flex items-center rounded-md h-[60px]">
+                <div class="p-2.5 my-1 flex items-center h-[60px]">
                     <!--                <i class="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md">로고</i>-->
                     <h1 class="ml-3 text-xl text-gray-200 font-bold"></h1>
                     <i class="bi bi-x ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
                 </div>
-                <div class=" bg-custom-black-900 shadow pt-1">
+                <div class=" bg-custom-black-900 shadow pt-1 min-h-screen">
                     <div class="h-[20px] md:h-0" id="mobile-aside-gap"></div>
-                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer  hover:bg-gray-700">
+                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
                         <i class="bi bi-house-door-fill"></i>
                         <span class="text-[15px] ml-4 text-gray-200 font-nps">도형;킴</span>
                     </div>
-                    <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
                         <i class="bi bi-house-door-fill"></i>
                         <span class="text-[15px] ml-4 text-gray-200 font-nps">Posts</span>
                     </div>
-                    <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
                         <i class="bi bi-house-door-fill"></i>
                         <span class="text-[15px] ml-4 text-gray-200">Photos</span>
                     </div>
-                    <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
                         <i class="bi bi-house-door-fill"></i>
                         <span class="text-[15px] ml-4 text-gray-200">etc.</span>
                     </div>
                     <hr class="my-4 text-gray-600">
                     <div id="aside-tag-area">
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴1</span>
+                        <div th:each="category : ${categoryList}" >
+                            <div class="p-2 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
+                                <a th:href="|category/${category.uriKey}|">
+                                    <span class="text-[15px] ml-1 text-gray-200" th:text="${category.name}"></span>
+                                </a>
+                            </div>
+                            <div th:each="childCategory:${category.childCategoryList}" >
+                                <div class="p-2 pl-8 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
+                                    <a th:href="|category/${category.uriKey}/${childCategory.uriKey}|">
+                                        <span class="text-[15px] ml-1 text-gray-200" th:text="${childCategory.name}"></span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴2</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴3</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴4</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">순둥순둥</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">얌고순</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">통통카</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">통통따리</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">통통따</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-                        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span class="text-[15px] ml-1 text-gray-200">메뉴5</span>
-                        </div>
-
-
                     </div>
 
                 </div>
@@ -133,12 +78,11 @@
 <!--    <div class="content-gap h-20 w-full flex" id="content-gap"></div>-->
     <div class="ml-0 lg:ml-[250px] duration-1000" id="main-wrapper">
         <main class="container mx-auto max-w-full" id="main">
-            <div class="invisible md:visible h-[15vw] " id="content-gap"></div>
-            <div class="container mx-auto mt-5 md:mt-20 px-5">
-                <div data-th-replace="${content}">
-                    <p>Content</p>
+            <div class="invisible md:visible h-[15vw] " id="content-gap">
+            </div>
+            <div class="container mx-auto mt-5 md:mt-20 px-5 md:min-h-screen" id="container">
+                <div th:replace="${content}">
                 </div>
-
             </div>
             <!--        <th:block th:replace="layout/fragment/rightSideFragment :: rightSideFragment"></th:block>-->
         </main>

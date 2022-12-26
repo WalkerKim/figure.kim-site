@@ -49,7 +49,7 @@ const colors={
       "800": "#413F48",
       "900": "#2E2D33",
     },"custom-black": {
-      "900": "#1D1C22"
+      "900": "#2d2d2d"
     },
     "white":"#FFF"
   }
@@ -65,7 +65,8 @@ module.exports = {
     extend: {
       fontFamily:{
         rix:["rixcitruslife-pro", "sans-serif"],
-        whale:["TTWhaleGothic", "sans-serif"]
+        whale:["TTWhaleGothic", "sans-serif"],
+        hanbat:["THE한밭돋움", "sans-serif"]
       }
     },
   },
