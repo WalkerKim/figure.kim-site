@@ -22,7 +22,15 @@
     font-style: normal;
     font-display: swap;
 }
-
+/*:target::before {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    height: 116px; !* fixed header height*!*/
+/*    margin: -116px 0 0; !* negative fixed header height *!*/
+/*}*/
+html {
+    scroll-padding-top: 116px; /* height of sticky header */
+}
 
 @tailwind base;
 @tailwind components;

@@ -24,6 +24,7 @@ public class PostController {
         PostDto.Get post = postService.getPost(id);
         model.addAttribute("categoryList", categoryService.getCategoryList());
         model.addAttribute("post", post);
+        model.addAttribute("recommendPostList", postService.getRecommendPostList(id));
         return "post/post";
     }
 }

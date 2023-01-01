@@ -26,67 +26,55 @@
 </head>
 
 <div class="my-10 scroll-smooth">
-    <div class="grid grid-cols-3">
-        <div class="col-span-3 sticky top-20 -z-10 justify-items-center" id="og-image-wrapper">
+    <div class="grid grid-cols-12">
+        <div class="col-span-12 sticky top-20 -z-10 justify-items-center" id="og-image-wrapper">
             <img th:src="${post.ogImage}" class="w-full mx-auto" id="og-image">
         </div>
-        <div class="title z-50 col-span-3 font-hanbat font-bold pt-12 pb-5 justify-between flex bg-white border-b-2 sticky top-0">
-            <h1 th:text="${post.title}" class="text-5xl"></h1>
-            <h3 th:text="${#dates.format(post.publishAt, 'yyyy-MM-dd')}" class="text-lg self-end margin"></h3>
+        <div class="title z-40 col-span-12 font-hanbat font-bold pt-3 md:pt-5 md:pb-3 bg-white sticky top-0 md:top-0" id="title-wrapper">
+            <div class="w-full md:mb-3 md:pb-3 border-b-2 md:justify-between md:flex">
+                <h1 th:text="${post.title}" class="text-2xl md:text-5xl mx-9 text-center pb-2 md:pb-0"></h1>
+                <h3 th:text="${#dates.format(post.publishAt, 'yyyy-MM-dd')}" class="text-base md:text-lg self-end margin text-right sticky top-2 md:flex -mt-2 md:mt-0" id="published-at"></h3>
+            </div>
         </div>
-        <div class="col-span-2 bg-white pt-10">
+        <div class="col-span-12 md:col-span-9 bg-white pt-10 mb-20">
             <div th:utext="${post.renderedContent}" th:class="${post.contentFormat.name()=='MARKDOWN'?'tui-editor-contents':''}">
             </div>
         </div>
-        <div class="col-span-1 bg-white pt-10" >
-            <div class="px-3 font-whale sticky top-40" id="heading-index">
 
+
+
+        <div class="hidden md:block md:col-span-3 bg-white pt-10">
+            <div id="tocbar" class="contained" role="navigation">
+                <button id="toggle-heading-index"></button>
+            </div>
+            <div class="px-3 font-whale sticky top-40" id="heading-index">
 
             </div>
         </div>
-        <hr class="mt-10 col-span-3">
-        <div class="col-span-3 py-5">
-            <a th:each="tag : ${post.tagList}" th:href="|/tag/${tag.id}|" th:text="'# ' + ${tag.id}" class="mx-3"/>
 
+        <h1 class="text-xl my-1 mt-10 font-bold">Tag</h1>
+        <div class="col-span-12 py-5 bg-white">
+            <a th:each="tag : ${post.tagList}" th:href="|/tag/${tag.id}|" th:text="'# ' + ${tag.id}" class="mx-3 text-lg"/>
+        </div>
+        <hr class="col-span-12 bg-white">
+        <h1 class="text-xl my-1 mt-10 font-bold">Category</h1>
+        <div class="col-span-12 py-5 bg-white">
+            <a th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-3 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/>
+        </div>
+        <hr class="col-span-12 bg-white">
+        <h1 class="text-xl my-1 mt-10 font-bold">Recommendation</h1>
+        <div class="col-span-12 py-5 bg-white">
+            <div class="space-y-2 md:grid grid-cols-12 md:grid-cols-4 md:gap-x-8 md:gap-y-10 md:space-y-0 rounded-lg">
+                <div th:each="recommendPost:${recommendPostList}" class="relative md:max-w-[340px] max-w-full md:mx-auto bg-white shadow-lg rounded-lg">
+                    <div th:replace="~{post/postCard.html::postCardParam(${recommendPost})}">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="module" th:src="@{'/assets/js/post.js'}"></script>
     <script>
-        const contentEl = document.getElementsByClassName("tui-editor-contents")[0];
-        const scrollMap = {};
-        let headingList = [...contentEl.childNodes].filter(i => {
-            return (i.tagName ?? "").startsWith("H")
-        });
-        let headingIndexATagList = headingList.map(heading => {
-            const id = heading.id;
-            const depth = heading.tagName.substring(1);
-            const yOffset = heading.getBoundingClientRect().y;
-            scrollMap[yOffset] = id;
-            console.log(depth)
-            const aTag = document.createElement("a");
-            aTag.href = "#" + id;
-            aTag.innerText = heading.innerText;
-            aTag.classList.add("block", "pl-" + depth * 3, "py-3", "hover:bg-gray-100", "text-xl", "cursor-pointer", id);
-            document.getElementById("heading-index").appendChild(aTag)
-            return aTag;
-        });
-        document.addEventListener('scroll', function() {
-            let current = "";
-            headingList.forEach((heading) => {
-                const sectionTop = heading.offsetTop;
-                const sectionHeight = heading.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = heading.getAttribute("id");
-                }
-            });
 
-            headingIndexATagList.forEach((li) => {
-                li.classList.remove("bg-gray-300");
-                if (li.classList.contains(current)) {
-                    li.classList.add("bg-gray-300");
-                }
-            });
-        });
 
     </script>
 </div>

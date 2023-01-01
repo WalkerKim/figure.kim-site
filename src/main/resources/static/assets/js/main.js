@@ -1,5 +1,3 @@
-// import 'vite/modulepreload-polyfill'
-import '../css/main.css';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {TextPlugin} from "gsap/TextPlugin";
@@ -27,40 +25,23 @@ gsap.from(".signature-area",{
         start:'top 0',
         end:"top -20",
         scrub: 1,
-        // pinReparent: true,
-        // toggleActions: "play resume reverse resume",
-        markers:true,
-        onEnter: ({progress, direction, isActive}) => {
-            console.log("onEnter",progress, direction, isActive);
-            // masterTimeline.play();
-        },
         onLeave: ({progress, direction, isActive}) => {
-            console.log("onLeave",progress, direction, isActive)
             isStopSignatureTransition = true;
             cursor.pause(1);
-            // document.getElementById("menu-gap").classList.remove("h-[15vw]")
             contentGapDom.classList.remove("h-[15vw]")
-            // document.getElementById("header-nav").classList.remove("mt-[400px]")
             contentGapDom.classList.add("h-[120px]")
             signatureWrapperDom.classList.remove("w-full")
-            signatureWrapperDom.classList.add("w-[200px]", "lg:w-[250px]")
+            signatureWrapperDom.classList.add("md:w-[200px]", "lg:w-[250px]")
 
         },
         onEnterBack: ({progress, direction, isActive}) => {
-            console.log("onEnterBack",progress, direction, isActive)
-
             masterTimeline.play();
             isStopSignatureTransition = false;
-            // document.getElementById("menu-gap").classList.add("h-[15vw]")
             contentGapDom.classList.add("h-[15vw]")
             contentGapDom.classList.remove("h-[120px]")
             signatureWrapperDom.classList.add("w-full")
-            signatureWrapperDom.classList.remove("w-[200px]", "lg:w-[250px]")
+            signatureWrapperDom.classList.remove("md:w-[200px]", "lg:w-[250px]")
             cursor.play();
-            // document.getElementById("header-nav").classList.add("mt-[400px]")
-        },
-        onLeaveBack: ({progress, direction, isActive}) => {
-            console.log("onLeaveBack",progress, direction, isActive)
         }
     }
 });
@@ -78,18 +59,7 @@ gsap.from(".menu-gap",{
     },
     height:"15vw"
 })
-// gsap.from("#mobile-menu-gap",{
-//     scrollTrigger:{
-//         trigger:"body",
-//         start:'top 0',
-//         end:"top -20",
-//         scrub: 1,
-//         markers:false,
-//         // pin: ".content-gap2",
-//
-//     },
-//     height:0
-// })
+
 gsap.to("#mobile-aside-gap",{
     scrollTrigger:{
         trigger:"body",
@@ -122,18 +92,13 @@ signatureWordArray.forEach(word=>{
     });
     masterTimeline.add(tl)
 })
+
 function openBar(){
     console.log("openbar")
     let sideBarDom = document.getElementById("side-bar");
     let hamTopDom = document.getElementById("ham-top");
     let hamMidDom = document.getElementById("ham-mid");
     let hamBottomDom = document.getElementById("ham-bottom");
-
     sideBarDom.classList.toggle("left-[-250px]")
-    //toggle
-    hamMidDom.classList.toggle("invisible");
-    hamTopDom.classList.toggle("rotate-45");
-    hamBottomDom.classList.toggle("-rotate-45");
-    hamTopDom.classList.toggle("translate-y-2.5");
-    hamBottomDom.classList.toggle("-translate-y-2.5");
+
 }

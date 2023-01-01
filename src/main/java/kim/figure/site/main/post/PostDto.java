@@ -48,8 +48,6 @@ public class PostDto {
 
         private List<Category> categoryList;
 
-        private List<String> headingIdList;
-
         //ogTag image
         String ogImage;
 
