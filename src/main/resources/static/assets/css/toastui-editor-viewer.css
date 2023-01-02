@@ -360,7 +360,9 @@
   min-height: 22px;
 }
 .tui-editor-contents p br{
-height: 10px;
+  display: block;
+  margin: 10px 0;
+  content: " ";
 }
 
 
@@ -425,15 +427,15 @@ height: 10px;
   }
 
   .tui-editor-contents h2 {
-    font-size: 15px;
-    line-height: 13px;
+    font-size: 18px;
+    line-height: 16px;
     border-bottom: 1px solid #dbdbdb;
     margin: 40px 0 13px 0;
     padding-bottom: 7px;
   }
 
   .tui-editor-contents h3 {
-    font-size: 13px;
+    font-size: 15px;
     margin: 25px 0 2px;
   }
 

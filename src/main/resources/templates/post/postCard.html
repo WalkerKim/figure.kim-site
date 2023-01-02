@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div class="" th:fragment="postCardParam(post)">
-    <div th:data-href="|/post/${post.id}|" class="recommend-card">
+    <a th:data-href="|/post/${post.id}|" class="recommend-card" th:href="|/post/${post.id}|">
         <div class="col-span-3 bg-white">
             <div class="space-y-10 md:gap-x-8 md:gap-y-10 md:space-y-0 border border-gray-200 rounded-lg shadow-md">
                 <div class="relative max-w-full md:max-w-[340px] md:mx-auto bg-white shadow-lg rounded-lg w-full">
@@ -10,20 +10,24 @@
                         <div class="flex justify-between items-center">
                             <div class="flex items-center">
                                 <div class="pr-1">
-                                    <a class="inline-flex text-gray-800 hover:text-gray-900" href="#0">
-                                        <h2 class="text-xl leading-snug font-bold" th:text="${post.title}">title</h2>
-                                    </a>
+                                    <h2 class="text-xl leading-snug font-bold inline-flex text-gray-800 hover:text-gray-900" th:text="${post.title}">title</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <img th:src="${post.ogImage}" class="w-full rounded-b-lg"/>
+                    <div class="max-h-56 min-h-[340px]">
+                        <div th:if="${post.ogImage==null} or ${post.ogImage==''}">
+                            <p class="text-3xl text-center font-whale w-full py-10 px-5" th:text="${post.title}"></p>
+                        </div>
+                        <img th:if="${post.ogImage!=null} and ${post.ogImage!=''}" th:src="${post.ogImage}" class="w-full rounded-b-lg"/>
+                    </div>
+                    <div class="min-h-[]">
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 
 </div>
 </body>
