@@ -49,6 +49,7 @@ const colors={
       "800": "#413F48",
       "900": "#2E2D33",
     },"custom-black": {
+      "100": "#f5f5f7",
       "900": "#2d2d2d"
     },
     "white":"#FFF"

@@ -31,7 +31,7 @@
             <img th:src="${post.ogImage}" class="w-full mx-auto" id="og-image">
         </div>
     </div>
-    <div class="w-full title z-[17] col-span-12 font-hanbat font-bold pt-3 md:pt-5 md:pb-3 bg-white sticky top-0 md:top-0" id="title-wrapper">
+    <div class="w-full title z-[17] col-span-12 font-hanbat font-bold pt-3 md:pt-5 md:pb-3  sticky top-0 md:top-0" id="title-wrapper">
         <div class="w-full md:mb-3 md:pb-1 border-b-2 md:justify-between md:flex">
             <h1 th:text="${post.title}" class="text-2xl md:text-5xl mx-9 text-center pb-2 md:pb-0"></h1>
             <h3 th:text="${#dates.format(post.publishAt, 'yyyy-MM-dd')}" class="text-base md:text-lg self-end margin text-right sticky top-2 md:flex -mt-2 md:mt-0 min-w-fit" id="published-at"></h3>
@@ -39,11 +39,11 @@
 
     </div>
     <div class="grid grid-cols-12 z-10">
-        <div class="col-span-12 md:col-span-9 bg-white pt-10 mb-20">
+        <div class="col-span-12 md:col-span-9  pt-10 mb-20">
             <div th:utext="${post.renderedContent}" th:class="${post.contentFormat.name()=='MARKDOWN'?'tui-editor-contents':''}">
             </div>
         </div>
-        <div class="hidden md:block md:col-span-3 bg-white pt-10">
+        <div class="hidden md:block md:col-span-3 pt-10">
             <div id="tocbar" class="contained" role="navigation">
                 <button id="toggle-heading-index"></button>
             </div>
@@ -53,19 +53,19 @@
         </div>
 
         <h1 class="text-xl my-1 mt-10 font-bold">Tag</h1>
-        <div class="col-span-12 pt-4 pb-2 bg-white">
+        <div class="col-span-12 pt-4 pb-2">
             <a th:each="tag : ${post.tagList}" th:href="|/tag/${tag.id}|" th:text="'# ' + ${tag.id}" class="mx-3 text-lg"/>
         </div>
-        <hr class="col-span-12 bg-white">
+        <hr class="col-span-12">
         <h1 class="text-xl my-1 mt-10 font-bold">Category</h1>
-        <div class="col-span-12 pt-4 pb-2 bg-white">
+        <div class="col-span-12 pt-4 pb-2">
             <a th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-3 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/>
         </div>
-        <hr class="col-span-12 bg-white">
-        <h1 class="text-xl my-1 mt-10 font-bold">Recommendation</h1>
-        <div class="col-span-12 py-5 bg-white px-3">
-            <div class="space-y-4 md:grid grid-cols-12 md:grid-cols-4 md:gap-x-8 md:gap-y-10 md:space-y-0 rounded-lg">
-                <div th:each="recommendPost:${recommendPostList}" class="relative md:max-w-[340px] max-w-full md:mx-auto bg-white shadow-lg rounded-lg">
+        <hr class="col-span-12">
+        <h1 class="col-span-12 text-xl my-1 mt-10 font-bold">Related Posts</h1>
+        <div class="col-span-12 py-5 px-3">
+            <div class="space-y-4 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 md:gap-x-4 md:gap-y-10 md:space-y-0">
+                <div th:each="recommendPost:${recommendPostList}" class="rounded-2xl col-span-1 overflow-hidden">
                     <div th:replace="~{post/postCard.html::postCardParam(${recommendPost})}">
                     </div>
                 </div>

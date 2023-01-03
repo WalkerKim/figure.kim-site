@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div class="" th:fragment="postCardParam(post)">
+<div th:fragment="postCardParam(post)">
     <a th:data-href="|/post/${post.id}|" class="recommend-card" th:href="|/post/${post.id}|">
-        <div class="col-span-3 bg-white">
-            <div class="space-y-10 md:gap-x-8 md:gap-y-10 md:space-y-0 border border-gray-200 rounded-lg shadow-md">
-                <div class="relative max-w-full md:max-w-[340px] md:mx-auto bg-white shadow-lg rounded-lg w-full">
-                    <div class="py-3 px-5 border-b border-gray-200">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <div class="pr-1">
-                                    <h2 class="text-xl leading-snug font-bold inline-flex text-gray-800 hover:text-gray-900" th:text="${post.title}">title</h2>
-                                </div>
-                            </div>
+        <div class="bg-white w-full">
+            <div class="py-3 px-6 h-20 overflow-hidden">
+                <div class="flex items-center h-full">
+                    <h2 class="text-xl leading-snug font-bold inline-flex text-gray-800 hover:text-gray-400 my-auto" th:text="${post.title}">title</h2>
+                </div>
+            </div>
+            <div class="max-h-56">
+                <div class="relative after:absolute after:top-[-25px] after:left-[0] after:w-full after:h-[25px] after:bg-gradient-to-t after:from-[#FFFFFF]">
+                    <div class="flex h-22 w-full justify-items-center">
+                        <div th:if="${post.ogImage==null} or ${post.ogImage==''}" class="bg-gray-100 w-full overflow-hidden after:absolute after:bottom-[0] after:right-[0] after:h-[30px] after:bg-gradient-to-t after:from-[#FFFFFF] after:w-full">
+                            <p class="text-xl text-center font-whale w-full py-2 px-5 " th:text="${post.description}"></p>
                         </div>
-                    </div>
-                    <div class="max-h-56 min-h-[340px]">
-                        <div th:if="${post.ogImage==null} or ${post.ogImage==''}">
-                            <p class="text-3xl text-center font-whale w-full py-10 px-5" th:text="${post.title}"></p>
-                        </div>
-                        <img th:if="${post.ogImage!=null} and ${post.ogImage!=''}" th:src="${post.ogImage}" class="w-full rounded-b-lg"/>
-                    </div>
-                    <div class="min-h-[]">
-
+                        <img th:if="${post.ogImage!=null} and ${post.ogImage!=''}" th:src="${post.ogImage}" class="h-full object-cover m-auto transition-all ease-in-out delay-150"/>
                     </div>
                 </div>
+            </div>
+            <div class="min-h-[20px] pl-2 relative py-4 whitespace-nowrap overflow-hidden after:absolute after:top-[0] after:right-[0] after:w-1/2 after:h-[25px] after:bg-gradient-to-l after:from-[#FFFFFF] after:h-full">
+                <a th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-1 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/><span th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-1 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/><span th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-1 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/><span th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-1 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/>
             </div>
         </div>
     </a>
