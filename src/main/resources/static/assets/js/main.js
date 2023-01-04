@@ -44,6 +44,7 @@ let menuGsap = gsap.to("#icon-button #logo-menu",{
 
 
 })
+let signatureWrapper = document.getElementById("signature-wrapper");
 gsap.from(".signature-area",{
     x: "20vw",
     // y: "10vm",
@@ -64,6 +65,8 @@ gsap.from(".signature-area",{
             if(mobileCheck()){
                 menuGsap.play();
             }
+            signatureWrapper.classList.add("md:w-[200px]", "lg:w-[250px]");
+
             cursor.pause(1);
         },
         onEnterBack: ({progress, direction, isActive}) => {
@@ -75,6 +78,7 @@ gsap.from(".signature-area",{
             if(mobileCheck()){
                 menuGsap.reverse();
             }
+            signatureWrapper.classList.remove("md:w-[200px]", "lg:w-[250px]");
             cursor.play();
 
         }

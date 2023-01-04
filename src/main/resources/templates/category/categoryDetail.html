@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html data-th-replace="~{layout :: layout(~{::head/content()}, 'category', ~{::div})}">
+<head>
+    <title th:text="|${category.name}-Figure.Kim|">Figure.Kim</title>
+
+    <meta property="og:site_name" content="Figure.Kim">
+    <meta property="og:type" content="website">
+    <meta property="og:title" th:content="|category : ${category.name}|">
+    <meta property="og:description" th:content="|Figure.kim 카테고리 : ${category.name}|">
+
+
+<!--    <meta property="og:image"-->
+<!--          th:content="${category.ogImage==null?'https://figure.kim/images/figure.kim-ogImage.png':category.ogImage}">-->
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="420">
+
+    <meta name="twitter:title" th:content="${category.name}">
+    <meta name="twitter:description" th:content="|Figure.kim 카테고리 : ${category.name}|">
+
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:card" content="">
+<!--    <meta name="twitter:image" th:content="${category.ogImage==null?'https://figure.kim/images/figure.kim-ogImage.png':category.ogImage}">-->
+</head>
+
+<div class="my-10">
+        <h1 class="col-span-12 text-xl my-1 mt-10 font-bold" th:text="${category.name}"></h1>
+        <div class="col-span-12 py-5 2xl:px-72 md:px-28">
+            <div class="space-y-4 grid grid-cols-1 lg:grid-cols-1 md:grid-cols-1 md:gap-x-10 md:gap-y-10 md:space-y-0">
+                <div th:each="post:${postList}" class="col-span-1 overflow-hidden">
+                    <div th:replace="~{post/postCard.html::postCardParam(${post})}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+
+        </script>
+    </div>
+    <!--<mock class="pl-3 pl-6 pl-9 pl-12 pl-15 pl-18"></mock>-->
+</html>

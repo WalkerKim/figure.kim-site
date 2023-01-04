@@ -6,4 +6,10 @@ package kim.figure.site.main.common.exception;
  * description    :
  */
 public class BadRequestException  extends RuntimeException {
+    public BadRequestException(){
+        super();
+    }
+    public BadRequestException(String message){
+        super(message);
+    }
 }

@@ -10,6 +10,6 @@ import java.util.List;
  * date           : 2022. 11. 21.
  * description    :
  */
-public interface CategoryRepository extends MongoRepository<Category, Long> {
+public interface CategoryRepository extends MongoRepository<Category, String> {
     List<Category> findByDepth(int i);
 }

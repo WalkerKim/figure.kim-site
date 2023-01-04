@@ -17,7 +17,11 @@ const entrypoints = glob
 export default defineConfig({
     root,
     server: {
-        watch: {},
+        watch: {
+            // awaitWriteFinish:{
+            //     stabilityThreshold: 3000
+            // }
+        },
         proxy: {
             '/': {
                 target: 'http://localhost:8080',

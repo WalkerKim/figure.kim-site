@@ -18,7 +18,7 @@ let headingIndexATagList = headingList.map(heading => {
     const aTag = document.createElement("a");
     aTag.href = "#" + id;
     aTag.innerText = heading.innerText;
-    aTag.classList.add("block", "pl-" + depth * 3, "py-3", "hover:bg-gray-100", "text-xl", "cursor-pointer", id);
+    aTag.classList.add("block", "pl-" + depth * 3, "py-0.5", "hover:bg-gray-100", "text-base", "cursor-pointer", id);
     document.getElementById("heading-index").appendChild(aTag)
     aTag.addEventListener("click", function(e){
         let href = this.getAttribute("href");
