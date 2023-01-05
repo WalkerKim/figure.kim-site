@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="postCardParam(post)">
-    <a th:data-href="|/post/${post.id}|" class="recommend-card" th:href="|/post/${post.id}|">
-        <div class="w-full">
-            <div class="mb-2 pb-0 px-2 h-[48px] overflow-hidden border-b-custom-black-900 border-b-2">
-                <div class="flex items-center h-full">
-                    <h2 class="text-xl leading-snug font-whale inline-flex text-gray-800 hover:text-gray-400 my-auto leading-none" th:text="${post.title}">title</h2>
-                </div>
-            </div>
-            <div class="h-72">
-                <div th:if="${post.ogImage!=null} and ${post.ogImage!=''}" class="relative after:absolute after:top-[-25px] after:left-[0] after:w-full after:h-[25px] after:bg-gradient-to-t after:from-[#FFFFFF] ">
-                    <div class="relative w-full before:block before:pt-[53%] before:content-[''] overflow-hidden">
-                        <div class="absolute top-0 bottom-0 left-0 right-0 h-22 w-full justify-items-center ">
-    <!--                            <div th:if="${post.ogImage==null} or ${post.ogImage==''}" class="bg-gray-100 w-full overflow-hidden after:absolute after:bottom-[0] after:right-[0] after:h-[30px] after:bg-gradient-to-t after:from-[#FFFFFF] after:w-full">-->
-    <!--                                <p class="text-base text-center font-whale w-full py-2 px-5 " th:text="${post.description}"></p>-->
-    <!--                            </div>-->
-                            <img th:src="${post.ogImage}" class="h-full object-cover m-auto transition-all ease-in-out delay-150"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="description border-b-custom-black-900 border-b-2">
-                    <p class="text-base text-center font-whale w-full py-2 px-2 overflow-y-hidden h-40" th:text="${post.description}"></p>
-                </div>
-            </div>
-            <div class="min-h-[20px] pl-2 relative py-4 whitespace-nowrap overflow-hidden after:absolute after:top-[0] after:right-[0] after:w-1/2 after:h-[25px] after:bg-gradient-to-l after:from-custom-black-100 after:h-full">
-                <a th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}" class="mx-1 text-lg" th:classappend="${category.depth==0 ? 'font-bold':''}"/>
-            </div>
+<th:block th:fragment="postCardParam(post)">
+    <a th:if="${post.ogImage!=null} and ${post.ogImage!=''}" th:href="|/post/${post.id}|">
+        <div class="relative pt-[50%] w-full ">
+            <img th:src="${post.ogImage}" class="absolute top-0 left-0 w-full h-full block object-cover"/>
         </div>
     </a>
+    <div class="flex p-[1rem] flex-col flex-1">
+        <a th:data-href="|/post/${post.id}|" class="block recommend-card" th:href="|/post/${post.id}|">
+            <h4 class="text-lg font-bold pb-2" th:text="${post.title}">title</h4>
+            <div class="description-wrapper">
+                <p class="mb-[1.5rem] break-words text-[0.875rem] h-[3.9375rem] overflow-hidden text-ellipsis"
+                   th:text="${post.description}">description</p>
+            </div>
+        </a>
+        <div class="sub-info text-[0.75rem] leading-[1.5]">
+            <span th:text="${#dates.format(post.createdAt, 'yyyy-MM-dd')}">2022년 7월 29일</span>
+        </div>
+    </div>
 
-</div>
+    <div class="flex py-[0.625rem] px-[1rem] border-t-2 text-[0.75rem] leading-[1.5]">
+        <div class="relative w-full whitespace-nowrap overflow-hidden after:absolute after:top-[0] after:right-[0] after:w-1/2 after:h-[25px] after:bg-gradient-to-l after:from-custom-black-100 after:h-full">
+            <a class="mr-1"
+               th:each="category : ${post.categoryList}" th:href="|/category/${category.id}|" th:text="' ' + ${category.id}"  th:classappend="${category.depth==0 ? 'font-bold text-lg':'text-base'} "/>
+        </div>
+    </div>
+</th:block>
 </body>
 
 <!--<mock class="pl-3 pl-6 pl-9 pl-12 pl-15 pl-18"></mock>-->
