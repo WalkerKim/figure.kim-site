@@ -40,7 +40,7 @@ public class PostDto {
 
         private Instant lastModifiedAt;
 
-        private Instant publishAt;
+        private Instant publishedAt;
 
         private List<String> ogKeywordList;
 
