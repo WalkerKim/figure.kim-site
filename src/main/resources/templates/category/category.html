@@ -35,7 +35,7 @@
                     <a class="flex justify-between items-center" th:href="|/category/${category.uriKey}|">
                         <div class="flex items-center">
                             <div class="inline-flex items-start mr-3 text-3xl" href="#0">
-                                #
+                                ▲
                             </div>
                             <div class="pr-1 w-full">
                                 <div class="flex justify-between">
@@ -52,7 +52,7 @@
                     </a>
                 </div>
                 <div th:each="childCategory : ${category.childCategoryList}" class="divide-y divide-gray-200 pl-2 pr-12 py-3 border-b-2 border-gray-100 ml-10">
-                    <a class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50" th:href="|/category/${category.uriKey}/${childCategory.uriKey}|">
+                    <a class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50" th:href="|/category/${childCategory.uriKey}|">
                         <div class="flex justify-between">
                             <div class="post-title text-lg font-semibold text-gray-900" th:text="${childCategory.name}"></div>
                             <div class="text-[13px] align-middle leading-loose"  th:text="${childCategory.contentCount}"> </div>

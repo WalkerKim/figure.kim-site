@@ -27,11 +27,11 @@ public class CategoryService {
         return categoryRepository.findByDepth(0).parallelStream().map(category -> {
             List<CategoryDto.Get> childCategoryList = category.getChildCategoryList().parallelStream().map(childCategory -> {
                 CategoryDto.Get categoryDto = CategoryMapper.INSTANCE.categoryToGet(childCategory);
-                categoryDto.setContentCount(contentRepository.countByCategoryListAndIsPublished(childCategory, true));
+                categoryDto.setContentCount(getPostCountByCategoryAndIsPublished(childCategory, true));
                 return categoryDto;
             }).toList();
             CategoryDto.Get categoryDto = CategoryMapper.INSTANCE.categoryToGet(category);
-            categoryDto.setContentCount(contentRepository.countByCategoryListAndIsPublished(category, true));
+            categoryDto.setContentCount(getPostCountByCategoryAndIsPublished(category, true));
             categoryDto.setChildCategoryList(childCategoryList);
             return categoryDto;
         }).toList();
@@ -39,8 +39,12 @@ public class CategoryService {
 //        return categoryRepository.findByDepth(0);
     }
 
+    public Long getPostCountByCategoryAndIsPublished(Category category, Boolean isPublished){
+        return contentRepository.countByCategoryListAndIsPublished(category, isPublished);
+    }
+
     public List<Content> getPostByCategory(Category category){
-        List<Content> contentList = contentRepository.findByCategoryIdAndIsPublishedExcludeInnerContent(category.getId(), false);
+        List<Content> contentList = contentRepository.findByCategoryIdAndIsPublishedExcludeInnerContent(category.getId(), true);
         return contentList;
     }
 

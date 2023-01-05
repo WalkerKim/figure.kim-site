@@ -24,7 +24,9 @@
 </head>
 
 <div class="mt-10">
-        <h1 class="col-span-12 text-5xl my-1 mt-10 font-bold" th:text="${category.name}"></h1>
+        <div class="w-full sticky top-0 z-20 bg-custom-black-100 bg-opacity-80 py-5 mb-5">
+            <h1 class="col-span-12 text-5xl font-bold" th:text="|Category - ${category.name} (${postCount}) |"></h1>
+        </div>
         <div class="col-span-12 mx-auto">
             <div class="font-whale 2xl:px-96">
                 <th:block th:each="post:${postList}" >
