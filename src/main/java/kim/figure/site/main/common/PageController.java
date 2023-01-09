@@ -22,7 +22,7 @@ public class PageController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("categoryList", categoryService.getCategoryList());
+        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
         return "pages/index";
     }
 }

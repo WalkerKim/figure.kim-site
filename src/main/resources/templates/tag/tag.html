@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html data-th-replace="~{layout :: layout(~{::head/content()}, 'index', ~{::div})}">
+<head>
+  <title>Figure.kim | index</title>
+  <meta property="og:site_name" content="Figure.kim">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="도형킴 - 태그 목록">
+  <meta property="og:description" content="도형킴 - 태그목록">
+
+  <meta property="og:image" content="/assets/image/figure.kim.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+
+  <meta name="twitter:title" content="도형킴 - 태그 목록">
+  <meta name="twitter:description" content="도형킴 - 태그목록">
+
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://figure.kim/images/figure.kim.png">
+</head>
+<body>
+
+<div>
+  <div class="my-10">
+    <div class="py-3 px-5 mb-1">
+      <h1 class="text-4xl">
+        Tags
+      </h1>
+    </div>
+    <div class="grid grid-cols-4">
+      <div th:each="tag : ${tagList}" class="col-span-2 px-2 mx-2">
+        <div class="pt-6 pb-4 px-5 border-b border-gray-200 pr-12">
+          <a class="flex justify-between items-center" th:href="|/tag/${tag.tag}|">
+            <div class="flex items-center">
+              <div class="inline-flex items-start mr-3 text-xl">
+              </div>
+              <div class="pr-1 w-full">
+                <div class="flex justify-between">
+                  <div class="text-gray-800 hover:text-gray-900" >
+                    <h2 class="text-2xl leading-snug font-bold" th:text="${tag.tag}"></h2>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-xl align-middle leading-loose"  th:text="${tag.count}"> </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--    <script type="module" th:src="@{'/assets/js/index.js'}"></script>-->
+</div>
+</body>
+</html>

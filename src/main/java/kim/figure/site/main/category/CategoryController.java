@@ -23,13 +23,13 @@ public class CategoryController {
 
     @GetMapping("/category")
     public String categoryList(Model model){
-        model.addAttribute("categoryList", categoryService.getCategoryList());
+        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
         return "category/category";
     }
     @GetMapping("/category/{id}")
     public String categoryList(Model model, @PathVariable String id){
         Category targetCategory = categoryService.getCategoryById(id);
-        List<CategoryDto.Get> allCategory = categoryService.getCategoryList();
+        List<CategoryDto.Get> allCategory = categoryService.getCategoryListFilteringNoContent();
         List<Content> postList = categoryService.getPostByCategory(targetCategory);
         model.addAttribute("category", targetCategory);
         model.addAttribute("postCount", postList.size());

@@ -1,4 +1,4 @@
-package kim.figure.site.main.repository;
+package kim.figure.site.main.category;
 
 import kim.figure.site.common.category.Category;
 import org.springframework.data.mongodb.repository.MongoRepository;

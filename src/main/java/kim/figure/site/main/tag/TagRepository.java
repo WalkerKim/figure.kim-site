@@ -1,4 +1,4 @@
-package kim.figure.site.main.repository;
+package kim.figure.site.main.tag;
 
 import kim.figure.site.common.tag.Tag;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -9,4 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * description    :
  */
 public interface TagRepository extends MongoRepository<Tag, String> {
+
+
+
 }

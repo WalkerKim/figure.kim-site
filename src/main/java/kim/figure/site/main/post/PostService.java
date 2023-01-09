@@ -73,4 +73,9 @@ public class PostService {
         }
         return resultContentList;
     }
+
+    public List<PostDto.Get> getActivePostList() {
+        return postRepository.findByIsPublished(true).stream().map(PostMapper.INSTANCE::contentToGet).toList();
+    }
+
 }
