@@ -40,5 +40,7 @@ public interface PostRepository extends MongoRepository<Content, Long> {
 
     Content findTopByOrderByRecommendStatDesc();
 
-    List<Content> findTop10OrderByRecommendStatDesc();
+    List<Content> findTop8ByOrderByRecommendStatDesc();
+
+    List<Content> findTop8ByOrderByPublishedAtDesc();
 }

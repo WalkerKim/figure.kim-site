@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html data-th-replace="~{layout :: layout(~{::head/content()}, 'index', ~{::div})}">
+<head>
+    <title>Figure.kim | index</title>
+    <meta property="og:site_name" content="Figure.kim">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="도형킴 홈페이지">
+    <meta property="og:description" content="김도형의 배설 공간">
+
+    <meta property="og:image" content="/assets/image/figure.kim.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <meta name="twitter:title" content="Figure.kim">
+    <meta name="twitter:description" content="도형킴 홈페이지">
+
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://figure.kim/images/figure.kim.png">
+
+</head>
+<body>
+
+<div>
+    <div id="index-description-wrapper" class="h-full">
+        <div class="px-5 pt-5 pb-5 relative text-center z-10" id="description">
+            <div class="text-base text-2xl sm:text-3xl sm:leading-none" id="description-text">
+                <span class="description-word opacity-target whitespace-nowrap">만</span>
+
+                <span class="description-word whitespace-nowrap" th:text="${age}">32</span>
+                <span class="description-word opacity-target whitespace-nowrap">세</span>
+                <span class="description-word opacity-target whitespace-nowrap">남자</span>
+                <a th:href="@{/figure.kim}">
+                    <span class="description-word hover:text-gray-500 font-hanbat font-bold text-5xl align-bottom underline underline-offset-8 whitespace-nowrap">김도형</span>
+                </a>
+                <span class="description-word opacity-target">의</span>
+                <a th:href="@{/post/catharsis}" class="">
+                    <span class="description-word underline underline-offset-4 hover:text-gray-500 wordClasses opacity-target whitespace-nowrap">배설</span>
+                </a>
+                <span class="description-word opacity-target whitespace-nowrap">공간</span>
+            </div>
+        </div>
+        <div class="relative" id="index-img-wrapper">
+            <img class="absolute top-0 left-0 w-full" th:src="@{/assets/image/no-pika.png}" id="no-pika-img">
+            <img class="sticky top-0 left-0 w-full" th:src="@{/assets/image/pika.png}" id="pika-img">
+            <img class="absolute -bottom-4 md:-bottom-12 left-0 w-full h-4 md:h-12 bg-gradient-to-b from-yellow-700 to-transparent" >
+        </div>
+        <div class="my-20 mx-5" id="bla-bla">
+            <div class="py-3 md:py-5 mb-1 text-xl">
+                <p class="font-whale" id="bla-bla-1">그동안 정보를 공유해준 모든 분들께 감사드립니다.</p>
+                <p class="font-whale" id="bla-bla-2">그 정보, 나도 공유할랍니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-20 mx-5" id="recommend-wrapper">
+        <div class="py-3 md:py-5 mb-1">
+            <h1 class="text-5xl md:text-7xl font-cheap-pine text-transparent bg-clip-text bg-gradient-to-tr from-custom-black-900 to-gray-400">
+                Taster's Choice
+            </h1>
+        </div>
+<!--        <div class="font-whale ">-->
+<!--                <div th:insert="~{post/postCard.html::postCardParam(${recommendPost})}" class=" shadow-xl m-[1rem] overflow-hidden flex-col transition hover:-translate-y-2 hover:shadow-2xl duration-500 ease-in-out">-->
+<!--                </div>-->
+<!--        </div>-->
+        <a th:href="|/post/${recommendPost.id}|">
+            <div class="w-full md:w-full ">
+                <img th:src="${recommendPost.ogImage}" class="w-full"/>
+            </div>
+            <div class=" border-x border-b border-gray-200 rounded-lg shadow-md p-5">
+                <h1 class="text-2xl sm:text-4xl font-whale" th:text="${recommendPost.title}">
+                </h1>
+                <div class="description text-gray-600" th:text="${recommendPost.description}">
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="my-15 mx-5">
+        <div class="py-3 mb-1">
+            <h1 class="text-5xl md:text-7xl font-cheap-pine text-transparent bg-clip-text bg-gradient-to-tr from-custom-black-900 to-gray-400">
+                Recommendation
+            </h1>
+        </div>
+        <div class="flex md:-mx-[1rem] flex-wrap font-whale">
+            <th:block th:each="recommendPost:${recommendPostList}" >
+                <div th:insert="~{post/postCard.html::postCardParam(${recommendPost})}" class="flex w-[21rem] rounded-lg shadow-xl m-[1rem] overflow-hidden flex-col transition hover:-translate-y-2 hover:shadow-2xl duration-500 ease-in-out">
+                </div>
+            </th:block>
+        </div>
+    </div>
+    <div class="my-15 mx-5">
+        <div class="py-3 mb-1">
+            <h1 class="text-5xl md:text-7xl font-cheap-pine text-transparent bg-clip-text bg-gradient-to-tr from-custom-black-900 to-gray-400">
+                Most Recent Posts
+            </h1>
+        </div>
+        <div class="flex md:-mx-[1rem] flex-wrap font-whale">
+            <th:block th:each="recentPost:${recentPostList}" >
+                <div th:insert="~{post/postCard.html::postCardParam(${recentPost})}" class="flex w-[21rem] rounded-lg shadow-xl m-[1rem] overflow-hidden flex-col transition hover:-translate-y-2 hover:shadow-2xl duration-500 ease-in-out">
+                </div>
+            </th:block>
+        </div>
+    </div>
+
+
+    <hr>
+    <script type="module" th:src="@{'/assets/js/index.js'}"></script>
+</div>
+</body>
+</html>

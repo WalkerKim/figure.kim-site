@@ -36,7 +36,10 @@ public class PostService {
     }
 
     public List<Content> getRecommendPostList() {
-        return postRepository.findTop10OrderByRecommendStatDesc();
+        return postRepository.findTop8ByOrderByRecommendStatDesc();
+    }
+    public List<Content> getMostRecentPostList() {
+        return postRepository.findTop8ByOrderByPublishedAtDesc();
     }
 
     public List<PostDto.Get> getRecommendPostList(Long id) {

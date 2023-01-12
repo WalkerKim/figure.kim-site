@@ -1,11 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const { colors: defaultColors } = require('tailwindcss/defaultTheme')
-
-// const { colors: defaultColors } = import ('tailwindcss/defaultTheme')
-
+const defaultColors = require('tailwindcss/colors')
 
 const colors={
-  ...defaultColors,
+  "yellow":defaultColors.yellow,
   ...{
     "green": {
       "100": "#A5EEC5",
@@ -67,11 +64,10 @@ module.exports = {
       fontFamily:{
         rix:["rixcitruslife-pro", "sans-serif"],
         whale:["TTWhaleGothic", "sans-serif"],
-        hanbat:["THE한밭돋움", "sans-serif"]
+        hanbat:["THE한밭돋움", "sans-serif"],
+        "cheap-pine":["cheap-pine", "sans-serif"]
       }
     },
   },
 
 }
-// defaultColors.
-console.log()
