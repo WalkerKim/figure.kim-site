@@ -38,4 +38,7 @@ public interface PostRepository extends MongoRepository<Content, Long> {
     @Query( value="{ 'tagList' :  { '$ref' : 'tag', '$id' : ?0 } , 'isPublished' : ?1 }" , fields = "{ 'rawContent' : 0, 'renderedContent' : 0 }")
     List<Content> findByTagIdAndIsPublishedExcludeInnerContent(String tagId, boolean isPublished);
 
+    Content findTopByOrderByRecommendStatDesc();
+
+    List<Content> findTop10OrderByRecommendStatDesc();
 }

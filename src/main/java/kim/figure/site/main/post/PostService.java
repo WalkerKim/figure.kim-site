@@ -35,6 +35,10 @@ public class PostService {
         }).orElseThrow(()->new RuntimeException(""));
     }
 
+    public List<Content> getRecommendPostList() {
+        return postRepository.findTop10OrderByRecommendStatDesc();
+    }
+
     public List<PostDto.Get> getRecommendPostList(Long id) {
         int recommendContentCount = 5;
         Content targetContent = postRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
@@ -78,4 +82,7 @@ public class PostService {
         return postRepository.findByIsPublished(true).stream().map(PostMapper.INSTANCE::contentToGet).toList();
     }
 
+    public Content getRecommendPost() {
+        return postRepository.findTopByOrderByRecommendStatDesc();
+    }
 }
