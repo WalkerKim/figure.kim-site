@@ -23,7 +23,7 @@ public class CategoryController {
 
     @GetMapping("/category")
     public String categoryList(Model model){
-        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
+
         return "category/category";
     }
     @GetMapping("/category/{id}")

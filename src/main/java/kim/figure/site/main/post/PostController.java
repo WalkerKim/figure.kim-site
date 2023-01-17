@@ -22,7 +22,7 @@ public class PostController {
     @GetMapping("/post/{id}")
     public String post(Model model, @PathVariable("id") Long id){
         PostDto.Get post = postService.getPost(id);
-        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
+
         model.addAttribute("post", post);
         model.addAttribute("recommendPostList", postService.getRecommendPostList(id));
         return "post/post";

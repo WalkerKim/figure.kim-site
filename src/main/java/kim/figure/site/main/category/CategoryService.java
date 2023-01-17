@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static kim.figure.site.main.common.GlobalVariables.CATEGORY_LIST;
+
 /**
  * author         : walker
  * date           : 2022. 12. 21.
@@ -53,5 +55,9 @@ public class CategoryService {
 
     public List<Content> getPostByTag(Tag targetTag) {
         return postRepository.findByTagIdAndIsPublishedExcludeInnerContent(targetTag.getId(), true);
+    }
+
+    public void updateGlobalCategoryList() {
+        CATEGORY_LIST = getCategoryListFilteringNoContent();
     }
 }

@@ -27,7 +27,7 @@ public class TagController {
     @GetMapping("/tag")
     public String tagList(Model model){
         model.addAttribute("tagList", tagService.aggregateTagPostCount());
-        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
+
         return "tag/tag";
     }
 
@@ -39,7 +39,7 @@ public class TagController {
         model.addAttribute("tag", targetTag.getId());
         model.addAttribute("postCount", postList.size());
         model.addAttribute("postList", postList);
-        model.addAttribute("categoryList", categoryService.getCategoryListFilteringNoContent());
+
         return "tag/tagDetail";
     }
 }
