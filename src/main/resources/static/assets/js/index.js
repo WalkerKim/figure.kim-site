@@ -68,9 +68,9 @@ document.querySelectorAll(".opacity-target").forEach(span =>{
         opacity :0
     }, "-=2")
 })
-tl.from(noPikaImg,{
+tl.to(noPikaImg,{
     duration: 0.5,
-    opacity: 0
+    opacity: 1
 }, "-=0.5")
 tl.from(document.getElementById("bla-bla-1"),{
     duration:0.5,
