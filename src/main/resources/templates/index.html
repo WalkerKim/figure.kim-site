@@ -28,10 +28,10 @@
             <div class="text-base text-2xl sm:text-3xl sm:leading-none" id="description-text">
                 <span class="description-word opacity-target whitespace-nowrap">만</span>
 
-                <span class="description-word whitespace-nowrap" th:text="${age}">32</span>
+                <span class="description-word whitespace-nowrap" th:text="${T(java.time.Period).between(T(java.time.LocalDate).of(1988, 4, 18), T(java.time.LocalDate).now()).getYears()}">32</span>
                 <span class="description-word opacity-target whitespace-nowrap">세</span>
                 <span class="description-word opacity-target whitespace-nowrap">남자</span>
-                <a th:href="@{/figure.kim}">
+                <a th:href="@{/figure-kim}">
                     <span class="description-word hover:text-gray-500 font-hanbat font-bold text-5xl align-bottom underline underline-offset-8 whitespace-nowrap">김도형</span>
                 </a>
                 <span class="description-word opacity-target">의</span>

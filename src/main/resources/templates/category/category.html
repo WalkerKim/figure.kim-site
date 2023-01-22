@@ -30,7 +30,7 @@
             </h1>
         </div>
         <div class="grid grid-cols-4">
-            <div th:each="category : ${categoryList}" class="col-span-2 px-2 mx-2">
+            <div th:each="category : ${T(kim.figure.site.main.common.GlobalVariables).CATEGORY_LIST}" class="col-span-2 px-2 mx-2">
                 <div class="pt-6 pb-4 px-5 border-b border-gray-200 pr-12">
                     <a class="flex justify-between items-center" th:href="|/category/${category.uriKey}|">
                         <div class="flex items-center">

@@ -2,6 +2,7 @@
 const defaultColors = require('tailwindcss/colors')
 
 const colors={
+  "transparent":defaultColors.transparent,
   "yellow":defaultColors.yellow,
   ...{
     "green": {

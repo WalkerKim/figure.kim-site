@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html data-th-replace="~{layout :: layout(~{::head/content()}, 'index', ~{::div})}">
+<head>
+    <title>Figure.kim | index</title>
+    <meta property="og:site_name" content="Figure.kim">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="도형킴">
+    <meta property="og:description" content="김도형">
+
+    <meta property="og:image" content="/assets/image/figure.kim.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <meta name="twitter:title" content="Figure.kim">
+    <meta name="twitter:description" content="김도형">
+
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://figure.kim/images/figure.kim.png">
+    <style>
+
+
+        /*th {*/
+        /*    background: linear-gradient(#f5f5f7, #f5f5f7) padding-box,*/
+        /*    linear-gradient(to bottom, #2d2d2d, #bdbdbd, #f5f5f7) border-box;*/
+        /*    !*border-radius: 50em;*!*/
+        /*    border-right: 8px solid transparent;*/
+        /*    !*border-top: 4px solid transparent;*!*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div>
+    <div id="index-description-wrapper" class="h-full">
+        <div class="px-5 pt-5 pb-5 relative text-center z-10" id="description">
+            <div class="text-base text-2xl sm:text-3xl sm:leading-none" id="description-text">
+            </div>
+        </div>
+        <div class="relative" id="index-img-wrapper">
+            <img class="absolute top-0 left-0 w-full" th:src="@{/assets/image/no-pika.png}" id="no-pika-img">
+            <img class="sticky top-0 left-0 w-full" th:src="@{/assets/image/pika.png}" id="pika-img">
+            <img class="absolute -bottom-4 md:-bottom-12 left-0 w-full h-4 md:h-12 bg-gradient-to-b from-yellow-700 to-transparent">
+        </div>
+        <div class="my-20 mx-5 font-hanbat">
+            <div class="col-span-2 md:px-2 md:mx-2">
+                <table class="text-xl w-full md:w-2/3 mx-auto text-left">
+                    <caption class="hidden">김도형 그는 누구인가.</caption>
+                    <thead class="hidden"><th >항목</th> <th>내용</th></thead>
+                    <tr class="border-b border-b-custom-black-900/20 h-14">
+                        <th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap >이름</th>
+                        <td class="pl-5 text-base">김도형</td>
+                    </tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14">
+                        <th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>나이</th>
+                        <td class="pl-5 text-base" th:text="|${T(java.time.Period).between(T(java.time.LocalDate).of(1988, 4, 18), T(java.time.LocalDate).now()).getYears()}세  (1988. 04. 18. 01시경)|"></td>
+                    </tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>키</th><td class="pl-5 text-base">173cm</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>발 사이즈</th><td class="pl-5 text-base">255mm</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>체중</th><td class="pl-5 text-base">82.3kg</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>3대</th><td class="pl-5 text-base">380kg (데드 리프트 160, 스쿼트 135, 벤치 프레스 85)</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>MBTI</th><td class="pl-5 text-base">ENTP</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>가족관계</th><td class="pl-5 text-base">양친 생존, 1남 중 1남</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>현 거주지</th><td class="pl-5 text-base">서울시 은평구 연신내 (연신내역 1번출구 도보 17분, 약 1km, 자취)</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>좋아하는 운동</th><td class="pl-5 text-base">크로스핏, 로잉머신</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>학력</th><td class="pl-5 text-base">가톨릭대학교 경제학사, 공학사 (경제학 전공, 문화콘텐츠 복수전공, 철학 복수전공하다 변경)</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>직업</th><td class="pl-5 text-base">서버 프로그래머</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>정치성향</th><td class="pl-5 text-base">자유주의 (Libertarianism)</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>성격</th><td class="pl-5 text-base">감투 욕심 없음, 열린 사고 추구, 화가 별로 없고 평균적으로 화가나는 경우는 1년에 한두번 정도,</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>감투</th><td class="pl-5 text-base">학창시절 반장, 부반장을 계속 해왔으며 초등학교 전교 회장 및 부회장, 대학교 총학생회장 등 역임</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>병역</th><td class="pl-5 text-base">헌병 특임대, D.P 병장 전역</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>흡연 여부</th><td class="pl-5 text-base">2010년에 끊음</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>주량</th><td class="pl-5 text-base">소주 1~2병</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>자차 소유 여부</th><td class="pl-5 text-base">마실용 스쿠터 한대 (pcx 125cc)</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>좋아하는 개그맨</th><td class="pl-5 text-base">카더가든</td></tr>
+                    <tr class="border-b border-b-custom-black-900/20 h-14"><th class="md:px-10 before:md:content-['▲'] before:pr-3 font-bold text-xl md:text-2xl " scope="row" nowrap>좋아하는 개그 듀오</th><td class="pl-5 text-base">다비치</td></tr>
+                </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="h-[600px]"></div>
+    <script type="module" th:src="@{'/assets/js/figure-kim.js'}"></script>
+</div>
+</body>
+</html>

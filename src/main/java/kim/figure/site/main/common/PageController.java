@@ -27,7 +27,6 @@ public class PageController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("age", Period.between(LocalDate.of(1988, 04, 18), LocalDate.now()).getYears());
         model.addAttribute("recommendPost", postService.getRecommendPost());
         model.addAttribute("recommendPostList", postService.getRecommendPostList());
         model.addAttribute("recentPostList", postService.getMostRecentPostList());

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:fragment="layout(heads, bodyId, content)">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" th:href="@{/assets/image/favicon/16w/favicon.png}" sizes="16x16">
     <link rel="icon" th:href="@{/assets/image/favicon/32w/favicon.png}" sizes="32x32">
@@ -14,25 +14,45 @@
     <link rel="icon" th:href="@{/assets/image/favicon/228w/favicon.png}" sizes="228x228">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/assets/css/main.css}"/>
     <script>
-        (function(d) {
+        (function (d) {
             var config = {
                     kitId: 'cnu7gkc',
                     scriptTimeout: 3000,
                     async: true
                 },
-                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+                h = d.documentElement, t = setTimeout(function () {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+                s = d.getElementsByTagName("script")[0], a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function () {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {
+                }
+            };
+            s.parentNode.insertBefore(tk, s)
         })(document);
     </script>
     <block th:replace="${heads}"></block>
-    <script type="module" th:src="@{/@vite/client}" th:if="${@environment.getProperty('vite.is-vite-dev-server-active')}"></script>
+    <script type="module" th:src="@{/@vite/client}"
+            th:if="${@environment.getProperty('vite.is-vite-dev-server-active')}"></script>
     <script type="module" th:src="@{/assets/js/main.js}"></script>
 
 </head>
 <body data-th-id="${bodyId}" class="bg-custom-black-100">
-<div class="fixed top-0 lg:left-0 left-[-250px] bottom-0 w-[200px] lg:w-[250px] bg-custom-black-900" id="aside-bg"> </div>
-<button class="fixed left-2 top-2 z-50" >
+<div class="fixed top-0 lg:left-0 left-[-250px] bottom-0 w-[200px] lg:w-[250px] bg-custom-black-900"
+     id="aside-bg"></div>
+<button class="fixed left-2 top-2 z-50">
     <?xml version="1.0" encoding="UTF-8"?>
-    <svg id="icon-button" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172.7 172.7" class="h-[35px] md:h-[58px] overflow-visible" >
+    <svg id="icon-button" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172.7 172.7"
+         class="h-[35px] md:h-[58px] overflow-visible">
         <defs>
             <style>
                 .cls-1, .cls-2 {
@@ -59,35 +79,47 @@
                     stroke: #2b2b2b;
                     stroke-miterlimit: 10;
                 }
-                .logo-menu{
+
+                .logo-menu {
                     fill: transparent;
                 }
             </style>
         </defs>
         <g id="Layer_1-2" data-name="Layer 1">
             <g id="kim">
-                <path id="kim-k" class="cls-4" d="M30.22,119.64l7.07-13.67,22.73-3.92-14.24,30.1,16.6,29.91h-25.09l-7.07-15.65v15.65H10.17v-56.74l20.06-3.27v17.6Z"/>
-                <polygon id="kim-i" class="cls-4" points="65.21 115.75 85.02 112.42 85.02 162.06 65.21 162.06 65.21 115.75"/>
-                <path id="kim-m" class="cls-4" d="M90.68,115.75l17.92,3.27v3.61c2.92-2.59,6.42-5.13,10.28-5.62,5.25-.67,11.88-.43,14.71,3.74,4.33-4.02,8.96-5.99,15.72-5.84,9.24,.21,13.81,5.1,13.81,18.99v28.15h-19.81v-24.64c0-2.59-1.32-3.52-3.21-3.52-1.41,0-2.74,.74-3.3,2.04v26.12h-19.81v-24.64c0-2.59-1.32-3.52-3.21-3.52-1.42,0-2.74,.74-3.3,2.04v26.12h-19.81v-46.31Z"/>
+                <path id="kim-k" class="cls-4"
+                      d="M30.22,119.64l7.07-13.67,22.73-3.92-14.24,30.1,16.6,29.91h-25.09l-7.07-15.65v15.65H10.17v-56.74l20.06-3.27v17.6Z"/>
+                <polygon id="kim-i" class="cls-4"
+                         points="65.21 115.75 85.02 112.42 85.02 162.06 65.21 162.06 65.21 115.75"/>
+                <path id="kim-m" class="cls-4"
+                      d="M90.68,115.75l17.92,3.27v3.61c2.92-2.59,6.42-5.13,10.28-5.62,5.25-.67,11.88-.43,14.71,3.74,4.33-4.02,8.96-5.99,15.72-5.84,9.24,.21,13.81,5.1,13.81,18.99v28.15h-19.81v-24.64c0-2.59-1.32-3.52-3.21-3.52-1.41,0-2.74,.74-3.3,2.04v26.12h-19.81v-24.64c0-2.59-1.32-3.52-3.21-3.52-1.42,0-2.74,.74-3.3,2.04v26.12h-19.81v-46.31Z"/>
             </g>
             <polygon id="triangle" class="cls-6" points="122.99 77.45 91.52 82.09 111.27 107.02 122.99 77.45"/>
-            <rect id="square" class="cls-3" x="129.22" y="86.08" width="23.22" height="23.22" transform="translate(-28.67 72.28) rotate(-26.22)"/>
+            <rect id="square" class="cls-3" x="129.22" y="86.08" width="23.22" height="23.22"
+                  transform="translate(-28.67 72.28) rotate(-26.22)"/>
             <circle id="circle" class="cls-5" cx="75.26" cy="92.28" r="11.76"/>
-            <polygon id="border" class="cls-1" points="166.77 165.93 7 165.93 7 6.16 75.26 6.16 166.77 6.16 166.77 165.93"/>
-            <path id="color-border" class="cls-2" d="M164.59,172.2H8.12c-4.21,0-7.62-3.41-7.62-7.62V8.12C.5,3.91,3.91,.5,8.12,.5H164.59c4.21,0,7.62,3.41,7.62,7.62V164.59c0,4.21-3.41,7.62-7.62,7.62Z"/>
+            <polygon id="border" class="cls-1"
+                     points="166.77 165.93 7 165.93 7 6.16 75.26 6.16 166.77 6.16 166.77 165.93"/>
+            <path id="color-border" class="cls-2"
+                  d="M164.59,172.2H8.12c-4.21,0-7.62-3.41-7.62-7.62V8.12C.5,3.91,3.91,.5,8.12,.5H164.59c4.21,0,7.62,3.41,7.62,7.62V164.59c0,4.21-3.41,7.62-7.62,7.62Z"/>
             <g id="logo-menu" class="logo-menu">
-                <path id="menu-m" d="M63,37.35l-2.93,18.33h-8.39l2.7-16.55c.12-.69,.17-1.15,.17-1.61,0-1.38-.52-2.41-2.3-2.41-1.95,0-4.25,.57-5.17,.92l-3.05,19.65h-8.39l2.59-16.55c.12-.69,.17-1.21,.17-1.61,0-1.32-.52-2.41-2.3-2.41-1.03,0-3.56,.52-5.17,1.09l-3.1,19.48h-8.33l4.42-27.81h6.78l.63,2.01c1.9-.92,6.26-2.59,8.79-2.59,2.01,0,4.48,.52,5.92,2.7,.8-.46,5.63-2.7,10.17-2.7,2.93,0,7.07,.52,7.07,6.9,0,.92-.11,1.95-.29,3.16Z"/>
-                <path id="menu-e" d="M91.56,36.03l-.4,2.24c-.58,3.22-3.56,5.17-7.3,5.86-2.07,.4-7.81,.69-9.37,.69l-.17,1.21c-.06,.46-.06,.69-.06,.92,0,1.09,.52,2.07,2.41,2.07,3.91,0,10.06-.75,13.56-1.61l-.98,6.15c-3.39,1.38-9.83,2.7-14.19,2.7-3.1,0-9.31-.46-9.31-7.59,0-.75,.11-1.55,.23-2.47l1.38-8.85c.8-5,3.91-9.48,10.57-9.48h5.98c6.84,0,7.81,4.14,7.81,6.38,0,.63-.12,1.32-.17,1.78Zm-15.75,.75l-.57,3.05c.92,0,5.86-.23,7.01-.52,1.61-.4,1.95-.98,2.18-1.49,.11-.29,.29-1.09,.29-1.44,0-1.09-.69-1.84-1.95-1.84h-4.25c-.98,0-2.41,.57-2.7,2.24Z"/>
-                <path id="menu-n" d="M122.82,37.35l-2.87,18.33h-8.39l2.59-16.55c.12-.69,.17-1.15,.17-1.61,0-1.61-.8-2.47-2.24-2.47-1.9,0-5.17,.63-7.36,1.15l-3.16,19.48h-8.33l4.42-27.81h6.78l.63,2.07c3.39-1.38,8.1-2.64,10.98-2.64s7.07,.46,7.07,6.9c0,.92-.12,1.95-.29,3.16Z"/>
-                <path id="menu-u" d="M150.57,55.68h-7.24l-.34-2.64c-2.18,1.38-6.03,3.22-9.19,3.22-2.93,0-8.1-.57-8.1-6.9,0-.92,.12-1.95,.29-3.16l2.87-18.33h8.33l-2.64,16.67c-.06,.34-.12,.86-.12,1.38,0,1.21,.4,2.53,2.3,2.53,2.59,0,5.46-.92,6.95-1.72l2.99-18.85h8.33l-4.42,27.81Z"/>
+                <path id="menu-m"
+                      d="M63,37.35l-2.93,18.33h-8.39l2.7-16.55c.12-.69,.17-1.15,.17-1.61,0-1.38-.52-2.41-2.3-2.41-1.95,0-4.25,.57-5.17,.92l-3.05,19.65h-8.39l2.59-16.55c.12-.69,.17-1.21,.17-1.61,0-1.32-.52-2.41-2.3-2.41-1.03,0-3.56,.52-5.17,1.09l-3.1,19.48h-8.33l4.42-27.81h6.78l.63,2.01c1.9-.92,6.26-2.59,8.79-2.59,2.01,0,4.48,.52,5.92,2.7,.8-.46,5.63-2.7,10.17-2.7,2.93,0,7.07,.52,7.07,6.9,0,.92-.11,1.95-.29,3.16Z"/>
+                <path id="menu-e"
+                      d="M91.56,36.03l-.4,2.24c-.58,3.22-3.56,5.17-7.3,5.86-2.07,.4-7.81,.69-9.37,.69l-.17,1.21c-.06,.46-.06,.69-.06,.92,0,1.09,.52,2.07,2.41,2.07,3.91,0,10.06-.75,13.56-1.61l-.98,6.15c-3.39,1.38-9.83,2.7-14.19,2.7-3.1,0-9.31-.46-9.31-7.59,0-.75,.11-1.55,.23-2.47l1.38-8.85c.8-5,3.91-9.48,10.57-9.48h5.98c6.84,0,7.81,4.14,7.81,6.38,0,.63-.12,1.32-.17,1.78Zm-15.75,.75l-.57,3.05c.92,0,5.86-.23,7.01-.52,1.61-.4,1.95-.98,2.18-1.49,.11-.29,.29-1.09,.29-1.44,0-1.09-.69-1.84-1.95-1.84h-4.25c-.98,0-2.41,.57-2.7,2.24Z"/>
+                <path id="menu-n"
+                      d="M122.82,37.35l-2.87,18.33h-8.39l2.59-16.55c.12-.69,.17-1.15,.17-1.61,0-1.61-.8-2.47-2.24-2.47-1.9,0-5.17,.63-7.36,1.15l-3.16,19.48h-8.33l4.42-27.81h6.78l.63,2.07c3.39-1.38,8.1-2.64,10.98-2.64s7.07,.46,7.07,6.9c0,.92-.12,1.95-.29,3.16Z"/>
+                <path id="menu-u"
+                      d="M150.57,55.68h-7.24l-.34-2.64c-2.18,1.38-6.03,3.22-9.19,3.22-2.93,0-8.1-.57-8.1-6.9,0-.92,.12-1.95,.29-3.16l2.87-18.33h8.33l-2.64,16.67c-.06,.34-.12,.86-.12,1.38,0,1.21,.4,2.53,2.3,2.53,2.59,0,5.46-.92,6.95-1.72l2.99-18.85h8.33l-4.42,27.81Z"/>
             </g>
         </g>
     </svg>
 </button>
-<div class="md:py-2.5 md:px-2.5 px-2.5 pt-2 mt-0 fixed items-center h-[50px] md:h-[76px] flex z-[16] md:z-[19] w-full bg-custom-black-100 top-0" id="signature-wrapper">
+<div class="md:py-2.5 md:px-2.5 px-2.5 pt-2 mt-0 fixed items-center h-[50px] md:h-[76px] flex z-[16] md:z-[19] w-full bg-custom-black-100 top-0"
+     id="signature-wrapper">
     <div class="w-[35px] md:w-[70px]"></div>
     <div class="signature-area ml-3 text-xl lg:text-3xl lg:leading-[0px] text-gray-900 font-bold w-full justify-center">
-        <a class="relative" href="/">
+        <a class="relative cursor-pointer" href="/">
             <span class="box absolute inline-block"></span>
             <span class="text inline-block"></span>
             <span class="cursor inline-block">_</span>
@@ -96,61 +128,133 @@
     <!--        <i class="bi bi-x ml-20 cursor-pointer md:hidden" onclick="Openbar()"></i>-->
 </div>
 <aside class="relative z-[18]">
-    <div class="sidebar fixed top-0 lg:left-0 left-[-250px] duration-1000 w-[200px] lg:w-[250px] text-center overflow-y-auto z-10 md:z-0 text-white max-h-screen md:max-h-fit transition-[position] pt-14 md:pt-20"
+    <nav class="sidebar fixed top-0 lg:left-0 left-[-250px] duration-1000 w-[200px] lg:w-[250px] text-center overflow-y-auto z-10 md:z-0 text-white max-h-screen md:max-h-fit transition-[position] pt-14 md:pt-20"
          id="side-bar">
         <div class="text-gray-100 text-xl">
-<!--            <div class="sticky top-12 p-2.5 my-1 flex items-center h-[40px] md:h-[65px]">-->
-<!--                <h1 class="ml-3 text-xl text-gray-200 font-bold"></h1>-->
-<!--            </div>-->
+            <!--            <div class="sticky top-12 p-2.5 my-1 flex items-center h-[40px] md:h-[65px]">-->
+            <!--                <h1 class="ml-3 text-xl text-gray-200 font-bold"></h1>-->
+            <!--            </div>-->
             <div class=" bg-custom-black-900 shadow pt-1">
-                <a th:href="@{/figure-kim}">
-                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
-                        <i class="bi bi-house-door-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200 font-nps">도형;킴</span>
-                    </div>
-                </a>
-                <a th:href="@{/category}">
-                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
-                        <i class="bi bi-house-door-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200">Categories</span>
-                    </div>
-                </a>
-                <a th:href="@{/tag}">
-                    <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
-                        <i class="bi bi-house-door-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200">tags</span>
-                    </div>
-                </a>
-                <hr class="my-4 text-gray-600">
-                <div id="aside-tag-area">
-                    <div th:each="category : ${T(kim.figure.site.main.common.GlobalVariables).CATEGORY_LIST}" >
-                            <a th:href="|/category/${category.uriKey}|">
-                                <div class="p-2 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
-                                        <span class="text-[15px] ml-1 text-gray-200" th:text="${category.name}"></span>
-                                </div>
-                            </a>
-                        <div th:each="childCategory:${category.childCategoryList}" >
-                                <a th:href="|/category/${childCategory.uriKey}|">
-                                    <div class="p-2 pl-8 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
-                                        <span class="text-[15px] ml-1 text-gray-200" th:text="${childCategory.name}"></span>
+                <ul>
+                    <li>
+                        <a th:href="@{/figure-kim}" class="cursor-pointer">
+                            <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800 group">
+                                <label class=" mr-1 bi hover:rotate-180"><?xml version="1.0" encoding="UTF-8"?>
+                                    <svg id="label-triangle" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 31.81 27.61"
+                                         class="h-[10px] md:h-[12px] overflow-visible transition-transform duration-500 group-hover:rotate-180">
+                                        <defs>
+                                            <style>
+                                                .label-triangle {
+                                                    fill: #c06;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <g id="Layer_2-2" data-name="Layer 2">
+                                            <g id="Layer_1-2" data-name="Layer 1-2">
+                                                <polygon id="triangle" class="label-triangle"
+                                                         points="15.98 0 0 27.55 31.81 27.61 15.98 0"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <span class="text-[15px] text-gray-200 font-nps">도형;킴?</span>
+                            </div>
+                        </a>
+                        <ul>
+                            <li>
+                                <a th:href="@{/figure-kim/chronology}" class="cursor-pointer">
+                                    <div class="p-1 pl-8 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
+                                        <i class="bi bi-house-door-fill"></i>
+                                        <span class="text-[15px] ml-4 text-gray-200 font-nps">연대기</span>
                                     </div>
                                 </a>
-                        </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/category}" class="cursor-pointer">
+                            <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800 group">
+                                <label class=" mr-1 bi hover:rotate-180">
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 32.81 32.81"
+                                         class="h-[13px] md:h-[15px] overflow-visible transition-transform duration-500 group-hover:rotate-90">
+                                        <defs>
+                                            <style>
+                                                .label-squre {
+                                                    fill: #0c6;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <g id="Layer_2-2" data-name="Layer 2">
+                                            <g id="Layer_1-2" data-name="Layer 1-2">
+                                                <rect id="square" class="label-squre" x="4.8" y="4.8" width="23.2"
+                                                      height="23.2" transform="translate(-6.79 16.3) rotate(-44.75)"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <span class="text-[15px] text-gray-200">Categories</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/tag}" class="cursor-pointer">
+                            <div class="p-2 mt-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800 group">
+                                <label class=" mr-1 bi hover:rotate-180 pl-1">
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 23.6 23.6"
+                                         class="h-[12px] md:h-[13px] overflow-visible transition-transform duration-500 group-hover:-scale-y-100">
+                                        <g id="Layer_2-2" data-name="Layer 2">
+                                            <g id="Layer_1-2" data-name="Layer 1-2">
+                                                <circle id="circle" class="fill-custom-black-100" cx="11.8" cy="11.8"
+                                                        r="11.8"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </label>
+                                <span class="text-[15px] ml-0.5 text-gray-200">tags</span>
+                            </div>
+                        </a>
+                    </li>
+                    <hr class="my-4 text-gray-600">
+                    <div id="aside-category-area">
+                        <li th:each="category : ${T(kim.figure.site.main.common.GlobalVariables).CATEGORY_LIST}"
+                            class="cursor-pointer">
+                            <a th:href="|/category/${category.uriKey}|">
+                                <div class="p-2 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
+                                    <span class="text-[15px] ml-1 text-gray-200" th:text="${category.name}"></span>
+                                </div>
+                            </a>
+                            <ul>
+                                <li th:each="childCategory:${category.childCategoryList}">
+                                    <a th:href="|/category/${childCategory.uriKey}|">
+                                        <div class="p-2 pl-8 my-2 flex items-center px-4 duration-300 cursor-pointer hover:bg-gray-800">
+                                        <span class="text-[15px] ml-1 text-gray-200"
+                                              th:text="${childCategory.name}"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </div>
-                </div>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 </aside>
-    <header>
-    </header>
+<header>
+</header>
 <!--    <div class="menu-gap 0 w-full flex" id="menu-gap"></div>-->
 <!--    <div class="content-gap h-20 w-full flex" id="content-gap"></div>-->
 <div class="ml-0 lg:ml-[250px] bg-custom-black-100">
-    <div class="container mx-auto mt-5 pt-[12vw] md:mt-20 px-2 md:px-5 md:min-h-screen text-custom-black-900 ">
+    <main class="container mx-auto mt-5 pt-[12vw] md:mt-20 px-2 md:px-5 md:min-h-screen text-custom-black-900 ">
         <block th:replace="${content}">
         </block>
-    </div>
+    </main>
 </div>
 <div class="body"></div>
 
