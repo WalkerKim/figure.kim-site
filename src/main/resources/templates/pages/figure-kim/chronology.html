@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<div class="nav__link relative block min-w-[8rem] pt-[1.5rem] px-[1rem] pb-[0.5rem] text-center hover:underline focus:underline after:content-[''] after:absolute after:top-0 after:left-1/2 after:w-[0.65rem] after:h-[0.65rem] after:rounded-[50%] after:-translate-x-1/2 after:origin-center after:bg-custom-black-900"></div>
+<!--<div class="nav__link relative block min-w-[8rem] pt-[1.5rem] px-[1rem] pb-[0.5rem] text-center hover:underline focus:underline after:content-[''] after:absolute after:top-0 after:left-1/2 after:w-[0.65rem] after:h-[0.65rem] after:rounded-[50%] after:-translate-x-1/2 after:origin-center after:bg-custom-black-900"></div>-->
 <div class="font-whale">
   <div class="w-full text-center py-20">
     <h1 class="text-7xl font-rix font-bold">김도형 연대기</h1>
@@ -106,6 +106,8 @@
         <p>4학년 3반</p>
         <p>5학년 4반</p>
         <p>6학년 1반</p>
+        <p class="hover:text-gray-800 pt-3 text-3xl md:text-5xl">신중앙컴퓨터학원</p>
+        <p>QBasic</p>
         <div class="flex mt-auto flex-col border-t border-t-custom-black-900 py-1">
           <p class="break-keep">자발적 인싸 생활, 막판에 질풍노도의 시기 진입</p>
           <p class="">특이사항 : 전교 어린이 부회장, 회장 </p>
@@ -113,8 +115,12 @@
         </div>
       </div>
       <div class="flex flex-col bg-custom-black-100 w-full md:w-1/2">
-        <img th:src="@{/assets/image/figure-kim/잼민.jpg}">
+        <img th:src="@{/assets/image/figure-kim/초딩-도형킴.png}">
       </div>
+<!--      <div class="flex flex-col bg-custom-black-100 w-full px-5 border-t-2 border-t-gray-600 mt-2 py-3">-->
+<!--        관련글 :-->
+<!--      </div>-->
+
     </div>
 
   </section>
@@ -123,7 +129,7 @@
     <div class="flex flex-col bg-custom-black-100 w-full md:w-1/2 h-96">
       <div class="flex relative w-full h-full items-center px-4 md:px-16">
         <img th:src="@{/assets/image/figure-kim/중딩-도형킴.png}" class="w-1/2 object-contain">
-        <img th:src="@{/assets/image/figure-kim/중딩-도형킴-2.png}" class="w-1/2 object-contain opacity-0 transition-opacity duration-500" id="middle-second-picture">
+        <img th:src="@{/assets/image/figure-kim/중딩-도형킴-3.png}" class="w-1/2 object-contain opacity-0 transition-opacity duration-500" id="middle-second-picture">
       </div>
     </div>
     <div class="flex flex-col w-full md:w-1/2 self-start gap-y-3.5 text-right self-stretch p-2 md:p-10 md:py-1 px-5">
@@ -134,7 +140,7 @@
       <p>2학년 6반</p>
       <p>3학년 4반</p>
       <div class="flex mt-auto flex-col border-t border-t-custom-black-900 py-1">
-        <p class="break-keep">이 귀엽게 생긴 친구는 급속도로 삭아 방황하는 비행 청소년이 되어 버립니다.</p>
+        <p class="break-keep">이 귀엽게 생긴 친구는 급속도로 삭아 방황하며<br> 비행 청소년이 되어 버립니다.</p>
         <p class="pt-1 md:pt-5 text-xl md:text-2xl font-hanbat"><span class="font-bold">비행 (非行) : </span>[명사] 잘못되거나 그릇된 행위.</p>
       </div>
     </div>
@@ -143,28 +149,33 @@
   <section id="year-04" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
     <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'04 ~ '06</h1>
     <div class="flex flex-wrap w-full flex-col-reverse md:flex-row">
-      <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5">
+      <div class="flex flex-col w-full md:w-1/2 self-start gap-y-3.5 self-stretch p-2 md:p-10 md:py-1 px-5">
+<!--      <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5">-->
         <a href="http://nonsandaegeon.cnehs.kr"  target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800 text-3xl md:text-5xl">논산대건고등학교</a>
         <p>1학년 5반</p>
         <p>2학년 4반</p>
         <p>3학년 2반</p>
+        <div class="flex mt-auto flex-col border-t border-t-custom-black-900 py-1">
+          <p class="break-keep">방황을 끊는 수단으로 산속 기숙사 학교로 진학</p>
+          <p class="pt-1 md:pt-5 text-xl md:text-2xl font-hanbat"><span class="font-bold">방황은 멈추지 않고 참고서 대신 철학서를 보기시작</span> <br>취미로 랩을 함</p>
+        </div>
       </div>
       <div class="flex flex-col bg-custom-black-100 w-1/2">
-        <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
+        <img th:src="@{/assets/image/figure-kim/고딩-도형킴.jpg}">
       </div>
     </div>
   </section>
   <section id="year-07" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
     <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'07 ~ '13</h1>
     <div class="flex flex-col bg-custom-black-100 w-1/2">
-      <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
+      <img th:src="@{/assets/image/figure-kim/총학생회.jpg}">
     </div>
     <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5 text-right">
       <a href="https://catholic.ac.kr" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800">
         가톨릭대학교
       </a>
-      <p>경제학 - 경제학사</p>
-      <p>문화콘텐츠 - 공학사</p>
+      <p>척척학사 취득 (경제학사, 공학사)</p>
+      <p>25대 총학생회 총학생회장</p>
     </div>
   </section>
   <section id="year-08" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
@@ -181,31 +192,38 @@
   </section>
   <section id="year-14" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
     <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'14</h1>
-    <div class="flex flex-col bg-custom-black-100 w-1/2">
-      <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
-    </div>
-    <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5 text-right">
-      <a href="https://www.icbanq.com/" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800 text-4xl">ICBANQ</a>
-      <p>상품기획 - 사원</p>
+    <div class="flex flex-wrap w-full flex-col-reverse md:flex-row">
+      <div class="flex flex-col w-full self-start gap-y-3.5 self-stretch p-2 md:py-1">
+        <!--      <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5">-->
+        <a href="https://www.icbanq.com/" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800 text-4xl">ICBANQ</a>
+        <p>상품기획 - 사원</p>
+        <div class="flex mt-auto flex-col border-t border-t-custom-black-900 py-1 text-xl">
+          <p class="break-keep">IT 상품 기획이 하고 싶어 급 입사한 기업이지만 실질 근로시간 8 to 9과 같은 K 기업의 쓴맛을 보고 어릴때부터 취미였던 코딩을 업으로 삼기로 함</p>
+          <!--        <p class="pt-1 md:pt-5 text-xl md:text-2xl font-hanbat"><span class="font-bold">비행 (非行) : </span>[명사] 잘못되거나 그릇된 행위.</p>-->
+        </div>
+      </div>
+      <div class="flex flex-col bg-custom-black-100 w-1/2">
+<!--        <img th:src="@{/assets/image/figure-kim/고딩-도형킴.jpg}">-->
+      </div>
     </div>
   </section>
   <section id="year-14-2" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
     <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'14 ~ '15</h1>
-    <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5">
-      <h2>국제원자재정보 종합포털</h2>
-      <a href="http://gmfocus.com/" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800 text-4xl">글로벌마켓포커스</a>
-      <h2>스타트업 1인 개발자</h2>
-      <p>굿로 (현 소프트랩스)</p>
-      <p>그루밍 (폐업)</p>
+
+    <div class="flex flex-col text-xl w-1/2 self-start gap-y-3.5">
+      <h2 class="text-3xl">신생 스타트업 1인 개발자</h2>
+      <p><a href="http://gmfocus.com/" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-gray-800">글로벌마켓포커스</a> - (국제원자재정보 종합포털)</p>
+      <p>굿로 - (현 소프트랩스)</p>
+      <p>그루밍 - (폐업)</p>
     </div>
-    <div class="flex flex-col bg-custom-black-100 w-1/2">
-      <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
+    <div class="flex flex-col bg-custom-black-100 w-1/2 h-20 md:h-[40rem]">
+      <img th:src="@{/assets/image/figure-kim/하얗게.png}" class="object-contain w-auto h-full">
     </div>
   </section>
   <section id="year-16" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
     <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'16 ~ '22</h1>
     <div class="flex flex-col bg-custom-black-100 w-1/2">
-      <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
+      <img th:src="@{/assets/image/figure-kim/에버스핀-도형킴.png}">
     </div>
     <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5 text-right">
       <a href="https://everspin.global" class="underline underline-offset-4 hover:text-gray-800 text-4xl">Everspin</a>
@@ -213,13 +231,13 @@
     </div>
   </section>
   <section id="year-23" class="flex flex-wrap justify-center items-center h-full pr-[1rem] pb-[5vh] pl-[1rem] w-full snap-start border-b border-b-custom-black-900" >
-    <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'23</h1>
+    <h1 class="text-7xl section__heading font-cheap-pine w-full py-5">'23 ~</h1>
     <div class="flex flex-col text-xl w-1/2 self-start text-3xl gap-y-3.5">
       <h2>한량</h2>
 
     </div>
     <div class="flex flex-col bg-custom-black-100 w-1/2">
-      <img th:src="@{/assets/image/figure-kim/나를-받아라.png}">
+      <img th:src="@{/assets/image/figure-kim/한량-도형킴.png}">
     </div>
   </section>
 </div>

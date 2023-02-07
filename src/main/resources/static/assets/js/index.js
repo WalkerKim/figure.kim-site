@@ -75,7 +75,7 @@ tl.to(noPikaImg,{
 tl.from(document.getElementById("bla-bla-1"),{
     duration:0.5,
     opacity :0
-},)
+}, "-=1")
 tl.from(document.getElementById("bla-bla-2"),{
     duration:0.5,
     opacity :0
@@ -83,11 +83,11 @@ tl.from(document.getElementById("bla-bla-2"),{
 tl.from(document.getElementById("aside-bg"),{
     duration:1,
     opacity:0
-}, "+=1")
+}, "-=1")
 tl.from(document.getElementById("side-bar"),{
     duration :1,
     opacity:0
-}, "+=1")
+}, "-=0")
 // tl.from(pikaImg, {opacity:0});
 tl.from(recommendWrapper,{
     opacity :0
@@ -106,7 +106,7 @@ tl.from(recommendWrapper,{
 ScrollTrigger.create({
     animation: tl,
     trigger:indexDescriptionWrapper,
-    markers:true,
+    // markers:true,
     scrub:1.5,
     pin:true,
     pinSpacing: true,
