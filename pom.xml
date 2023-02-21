@@ -3,15 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>kim.figure</groupId>
-        <artifactId>site</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.2</version>
     </parent>
     <groupId>kim.figure.site</groupId>
-    <artifactId>main</artifactId>
+    <artifactId>site</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>main</name>
-    <description>main</description>
+    <name>site</name>
+    <description>site</description>
+
     <properties>
         <java.version>17</java.version>
         <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
@@ -74,6 +75,12 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>kim.figure</groupId>
+            <artifactId>spring-ssg</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -104,6 +111,15 @@
                             <configuration>
                                 <nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
                                 <npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>npm-install</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <configuration>
+                                <arguments>install</arguments>
                             </configuration>
                         </execution>
                         <execution>

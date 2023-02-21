@@ -2,6 +2,7 @@ package kim.figure.site.main.common;
 
 import kim.figure.site.main.category.CategoryService;
 import kim.figure.site.main.post.PostService;
+import kim.figure.springssg.EnableSsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,7 @@ public class PageController {
     PostService postService;
 
     @GetMapping("/")
+    @EnableSsg
     public String index(Model model){
         model.addAttribute("recommendPost", postService.getRecommendPost());
         model.addAttribute("recommendPostList", postService.getRecommendPostList());
