@@ -2,6 +2,7 @@ package kim.figure.site.main.category;
 
 import kim.figure.site.common.category.Category;
 import kim.figure.site.common.content.Content;
+import kim.figure.springssg.EnableSsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +23,13 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping("/category")
+    @EnableSsg
     public String categoryList(Model model){
 
         return "category/category";
     }
     @GetMapping("/category/{id}")
+    @EnableSsg(pathVariableBeanRepositoryClass = CategoryService.class, getPathVariableListMethodName = "getCategoryIdList")
     public String categoryList(Model model, @PathVariable String id){
         Category targetCategory = categoryService.getCategoryById(id);
         List<CategoryDto.Get> allCategory = categoryService.getCategoryListFilteringNoContent();

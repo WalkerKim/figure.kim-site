@@ -7,12 +7,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * author         : walker
@@ -87,5 +85,15 @@ public class PostService {
 
     public Content getRecommendPost() {
         return postRepository.findTopByOrderByRecommendStatDesc();
+    }
+
+    public List<Map<String,String>> getAllIdList(){
+
+        return postRepository.findByIsPublished(true).stream().map(i -> {
+            Map<String, String> map = new HashMap();
+            map.put("id", i.getId().toString());
+            return map;
+        }).collect(Collectors.toList());
+
     }
 }

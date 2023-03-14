@@ -8,7 +8,11 @@ import kim.figure.site.main.post.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static kim.figure.site.main.common.GlobalVariables.CATEGORY_LIST;
 
@@ -27,7 +31,7 @@ public class CategoryService {
 
     public List<CategoryDto.Get> getCategoryListFilteringNoContent(){
         return categoryRepository.findByDepth(0).parallelStream().map(category -> {
-            List<CategoryDto.Get> childCategoryList = category.getChildCategoryList().parallelStream().map(childCategory -> {
+            List<CategoryDto.Get> childCategoryList = Optional.ofNullable(category.getChildCategoryList()).orElseGet(()->List.of()).parallelStream().map(childCategory -> {
                 CategoryDto.Get categoryDto = CategoryMapper.INSTANCE.categoryToGet(childCategory);
                 categoryDto.setContentCount(getPostCountByCategoryAndIsPublished(childCategory, true));
                 return categoryDto;
@@ -59,5 +63,13 @@ public class CategoryService {
 
     public void updateGlobalCategoryList() {
         CATEGORY_LIST = getCategoryListFilteringNoContent();
+    }
+
+    public List<Map<String, String>> getCategoryIdList(){
+        return categoryRepository.findAll().stream().map(i -> {
+            Map<String, String> map = new HashMap();
+            map.put("id", i.getId().toString());
+            return map;
+        }).collect(Collectors.toList());
     }
 }

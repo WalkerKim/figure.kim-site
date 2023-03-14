@@ -3,6 +3,7 @@ package kim.figure.site.main.tag;
 import kim.figure.site.common.content.Content;
 import kim.figure.site.common.tag.Tag;
 import kim.figure.site.main.category.CategoryService;
+import kim.figure.springssg.EnableSsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ public class TagController {
     private CategoryService categoryService;
 
     @GetMapping("/tag")
+    @EnableSsg
     public String tagList(Model model){
         model.addAttribute("tagList", tagService.aggregateTagPostCount());
 
@@ -33,6 +35,7 @@ public class TagController {
 
 
     @GetMapping("/tag/{id}")
+    @EnableSsg(pathVariableBeanRepositoryClass = TagService.class, getPathVariableListMethodName = "getTagIdList")
     public String tagList(Model model, @PathVariable String id){
         Tag targetTag = tagService.getTagById(id);
         List<Content> postList = categoryService.getPostByTag(targetTag);

@@ -5,7 +5,10 @@ import kim.figure.site.main.post.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * author         : walker
@@ -37,4 +40,14 @@ public class TagService {
     public Tag getTagById(String id) {
         return tagRepository.findById(id).orElseThrow(() -> new RuntimeException());
     }
+
+    public List<Map<String, String>> getTagIdList(){
+        return tagRepository.findAll().stream().map(i -> {
+            Map<String, String> map = new HashMap();
+            map.put("id", i.getId().toString());
+            return map;
+        }).collect(Collectors.toList());
+    }
+
+
 }

@@ -20,11 +20,11 @@ public class ApplicationStartup  implements ApplicationListener<ApplicationReady
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        try {
-            staticGenService.init();
-        } catch (IOException e) {
-            e.printStackTrace();
-//            throw new RuntimeException(e);
-        }
+//        try {
+//            staticGenService.init();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+////            throw new RuntimeException(e);
+//        }
     }
 }
